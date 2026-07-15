@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>全球风险仪表盘</title>
+  <meta name="description" content="每日更新全球利率、波动率、美元流动性、信用与风险资产信号。" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">GLOBAL RISK MONITOR</p>
+      <h1>全球风险仪表盘</h1>
+      <p class="subtitle">利率 · 波动率 · 信用 · 美元流动性 · 全球风险资产</p>
+    </div>
+    <div class="status-wrap">
+      <span id="status-dot" class="status-dot"></span>
+      <div><strong id="risk-regime">载入中</strong><small id="updated-at">—</small></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-grid">
+      <article class="panel risk-panel">
+        <div class="panel-title"><span>综合风险分数</span><span id="score-label">—</span></div>
+        <div class="score-row"><div id="risk-score" class="score">—</div><div class="score-scale">/ 100</div></div>
+        <div class="meter"><div id="meter-fill"></div></div>
+        <p id="headline" class="headline">正在读取每日数据...</p>
+      </article>
+      <article class="panel analysis-panel">
+        <div class="panel-title"><span>今日判断</span><span>自动生成</span></div>
+        <p id="summary"></p>
+        <ul id="signals"></ul>
+      </article>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>核心风险指标</h2><span>最新值 / 日变动 / 20日变化</span></div>
+      <div id="cards" class="cards"></div>
+    </section>
+
+    <section class="chart-grid">
+      <article class="panel"><div class="panel-title"><span>市场压力趋势</span><span>过去 90 个交易日</span></div><canvas id="stress-chart"></canvas></article>
+      <article class="panel"><div class="panel-title"><span>全球股市表现</span><span>归一化 = 100</span></div><canvas id="equity-chart"></canvas></article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title"><span>传导链条</span><span>从触发因素到资产价格</span></div>
+      <div id="transmission" class="transmission"></div>
+    </section>
+
+    <section class="panel data-quality">
+      <div class="panel-title"><span>数据覆盖</span><span id="coverage">—</span></div>
+      <ul id="missing"></ul>
+    </section>
+
+    <section class="panel methodology">
+      <div class="panel-title"><span>指标解释</span><span>非投资建议</span></div>
+      <p>风险分数综合长期利率、债券与股票波动率、信用利差、美元、日元、全球股市广度和流动性指标。它用于判断市场是否正从普通回撤转向机械化去杠杆，不预测单日涨跌。</p>
+    </section>
+  </main>
+
+  <footer>Data refresh via GitHub Actions · Rules-based analysis · Designed for daily macro monitoring</footer>
+  <script src="app.js"></script>
+</body>
+</html>
